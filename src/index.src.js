@@ -356,6 +356,20 @@ class ReactImageCrop extends Component {
             this.setState({status: false});
         }
     }
+    _resetCrop(){
+        let crop_block = this.refs.RICC_crop_block,
+            preview_block = this.refs.RICC_crop_preview;
+        crop_block.style.top = "0px";
+        crop_block.style.left = "0px";
+        crop_block.style.width = "0px";
+        crop_block.style.height = "0px";
+        preview_block.style.marginTop = "0px";
+        preview_block.style.marginLeft = "0px";
+        crop_block.style.display = "none";
+        this.setState({
+            activeCropBlock: false
+        });
+    }
     _onCrop(){
         let w = this.refs.RICC_crop_block.offsetWidth,
             h = this.refs.RICC_crop_block.offsetHeight,
@@ -378,35 +392,11 @@ class ReactImageCrop extends Component {
         if(ratio<1) ratio=1;
         if(ratioH<1) ratioH=1;
 
-        let crop_block = this.refs.RICC_crop_block,
-            preview_block = this.refs.RICC_crop_preview;
-        crop_block.style.top = "0px";
-        crop_block.style.left = "0px";
-        crop_block.style.width = "0px";
-        crop_block.style.height = "0px";
-        preview_block.style.marginTop = "0px";
-        preview_block.style.marginLeft = "0px";
-        crop_block.style.display = "none";
-        this.setState({
-            activeCropBlock: false
-        });
+        _resetCrop();
 
         return [canvas.toDataURL(), { y: t*ratio, x: l*ratio, w: w*ratioH, h: h*ratioH }];
     }
-    _resetCrop(){
-        let crop_block = this.refs.RICC_crop_block,
-            preview_block = this.refs.RICC_crop_preview;
-        crop_block.style.top = "0px";
-        crop_block.style.left = "0px";
-        crop_block.style.width = "0px";
-        crop_block.style.height = "0px";
-        preview_block.style.marginTop = "0px";
-        preview_block.style.marginLeft = "0px";
-        crop_block.style.display = "none";
-        this.setState({
-            activeCropBlock: false
-        });
-    }
+
     _dbTab(e){
         let currentTime = new Date().getTime(),
             tapLength = currentTime - dbLastTap;
