@@ -19,9 +19,8 @@
     "react-component"
   ],
   "scripts": {
+    "postinstall": "npm run-script build && rm -rf ./node_modules",
     "build": "babel src -d lib && minify --output ./lib/style.css ./src/style.css",
-    "prepare": "npm run build",
-    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": {

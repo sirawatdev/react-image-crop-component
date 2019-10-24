@@ -101,7 +101,7 @@ class ReactImageCrop extends Component {
                     <div style={this.props.borderStyle ? { borderBottom: this.props.borderStyle } : {}}
                             className={"RICC_crop_block_bottom_resize" + (this.props.resize ?
                     " RICC_crop_block_top_bottom_cursor" : "")} ref="RICC_crop_block_bottom_resize"/>
-                    <div className="RICC_crop_preview"><img ref="RICC_crop_preview" src={this.props.src} /></div>
+                    <div className="RICC_crop_preview"><img ref="RICC_crop_preview"/></div>
                 </div>
                 <div className="RICC_bg" ref="RICC_bg_block"/>
                 <img className="RICC_image" ref="RICC_image" src={this.props.src}/>
