@@ -19,6 +19,7 @@
     "react-component"
   ],
   "scripts": {
+    "postinstall": "rm -rf ./node_modules",
     "build": "babel src -d lib && minify --output ./lib/style.css ./src/style.css",
     "prepare": "npm run build",
     "prepublish": "npm run build",
@@ -31,12 +32,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/exelban/react-image-crop-component.git"
+    "url": "git+https://github.com/sirawatdev/react-image-crop-component.git"
   },
   "bugs": {
-    "url": "https://github.com/exelban/react-image-crop-component/issues"
+    "url": "https://github.com/sirawatdev/react-image-crop-component/issues"
   },
-  "homepage": "https://github.com/exelban/react-image-crop-component",
+  "homepage": "https://github.com/sirawatdev/react-image-crop-component",
   "dependencies": {
     "babel-cli": "~6.24.0",
     "babel-plugin-transform-class-properties": "^6.23.0",
