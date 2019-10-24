@@ -87,6 +87,7 @@ class ReactImageCrop extends Component {
         return(
             <div className="RICC_main_container" ref="RICC_main_container" onTouchStart={this.mouseDown}
                                             onMouseDown={this.mouseDown} onDoubleClick={this.resetCrop}>
+                <div className="cropBox">{this.props.children}</div>
                 <div className="RICC_crop_block" ref="RICC_crop_block">
                     <div style={this.props.borderStyle ? { borderLeft: this.props.borderStyle } : {}}
                                 className={"RICC_crop_block_left_resize" + (this.props.resize ?
@@ -100,7 +101,7 @@ class ReactImageCrop extends Component {
                     <div style={this.props.borderStyle ? { borderBottom: this.props.borderStyle } : {}}
                             className={"RICC_crop_block_bottom_resize" + (this.props.resize ?
                     " RICC_crop_block_top_bottom_cursor" : "")} ref="RICC_crop_block_bottom_resize"/>
-                    <div className="RICC_crop_preview"><img src={this.props.src} ref="RICC_crop_preview"/></div>
+                    <div className="RICC_crop_preview"><img ref="RICC_crop_preview" src={this.props.src} /></div>
                 </div>
                 <div className="RICC_bg" ref="RICC_bg_block"/>
                 <img className="RICC_image" ref="RICC_image" src={this.props.src}/>
