@@ -378,6 +378,8 @@ class ReactImageCrop extends Component {
         if(ratio<1) ratio=1;
         if(ratioH<1) ratioH=1;
 
+        _resetCrop();
+
         return [canvas.toDataURL(), { y: t*ratio, x: l*ratio, w: w*ratioH, h: h*ratioH }];
     }
     _resetCrop(){
