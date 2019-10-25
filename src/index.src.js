@@ -119,7 +119,7 @@ class ReactImageCrop extends Component {
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             mousePosX = e.clientX || Math.round(e.touches[0].clientX),
-            mousePosY = e.clientY || Math.round(e.touches[0].clientY);
+            mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
