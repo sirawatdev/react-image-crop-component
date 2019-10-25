@@ -259,12 +259,12 @@ class ReactImageCrop extends Component {
                     if(this.props.square) aY=aX;
                 }
 
-                if (aY > ((bHe+bTop)-startY) && top_bottom) {
-                    aY = ((bHe+bTop)-startY);
+                if (aY > ((bHe+bTop)-startY)+document.getElementById('scrollParag').scrollTop && top_bottom) {
+                    aY = ((bHe+bTop)-startY)+document.getElementById('scrollParag').scrollTop;
                     if(this.props.square) aX=aY;
                 }
-                if (aY > (bHe-((bHe+bTop)-startY))+document.getElementById('scrollParag').scrollTop && !top_bottom){
-                    aY = (bHe-((bHe+bTop)-startY))+document.getElementById('scrollParag').scrollTop;
+                if (aY > (bHe-((bHe+bTop)-startY)) && !top_bottom){
+                    aY = (bHe-((bHe+bTop)-startY));
                     preview_block.style.marginTop = "-1px";
                     crop_block.style.top = "0px";
                     if(this.props.square) aX=aY;
