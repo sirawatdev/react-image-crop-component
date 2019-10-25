@@ -215,7 +215,7 @@ class ReactImageCrop extends Component {
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
                     startY = this.state.start.y,
-                    bWi = document.getElementById('scrollParag').offsetWidth,
+                    bWi = document.getElementsByClassName('RICC_main_container').offsetWidth,
                     bLeft = this.state.blockX,
                     bHe = parseInt(main_block.style.height.replace('px', '')),
                     bTop = this.state.blockY,
