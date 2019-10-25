@@ -210,7 +210,7 @@ class ReactImageCrop extends Component {
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
                 mousePosX = e.pageX || Math.round(e.touches[0].clientX),
-                mousePosY = e.pageY+document.getElementById('scrollParag').scrollTop || Math.round(e.touches[0].clientY);
+                mousePosY = e.pageY+document.getElementById('scrollParag').scrollTop || Math.round(e.touches[0].clientY+document.getElementById('scrollParag').scrollTop);
 
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
@@ -264,7 +264,7 @@ class ReactImageCrop extends Component {
                     if(this.props.square) aX=aY;
                 }
                 if (aY > (bHe-((bHe+bTop)-startY)) && !top_bottom){
-                    aY = (bHe-((bHe+bTop)-startY));
+                    aY = (bHe-((bHe+bTop)-startY))+document.getElementById('scrollParag').scrollTop;
                     preview_block.style.marginTop = "-1px";
                     crop_block.style.top = "0px";
                     if(this.props.square) aX=aY;
