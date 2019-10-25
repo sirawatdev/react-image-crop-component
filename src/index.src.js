@@ -259,8 +259,8 @@ class ReactImageCrop extends Component {
                     if(this.props.square) aY=aX;
                 }
 
-                if (aY > ((bHe+bTop)-startY)+document.getElementById('scrollParag').scrollTop && top_bottom) {
-                    aY = ((bHe+bTop)-startY)+document.getElementById('scrollParag').scrollTop;
+                if (aY > ((bHe+bTop)-startY) && top_bottom) {
+                    aY = ((bHe+bTop)-startY);
                     if(this.props.square) aX=aY;
                 }
                 if (aY > (bHe-((bHe+bTop)-startY)) && !top_bottom){
