@@ -104,7 +104,7 @@ class ReactImageCrop extends Component {
                     <div className="RICC_crop_preview"><img ref="RICC_crop_preview"/></div>
                 </div>
                 <div className="RICC_bg" ref="RICC_bg_block"/>
-                <img className="RICC_image" ref="RICC_image" src={this.props.src}/>
+                <img id="img" className="RICC_image" ref="RICC_image" src={this.props.src}/>
             </div>
     );
     }
@@ -118,7 +118,7 @@ class ReactImageCrop extends Component {
             resize_right_block = this.refs.RICC_crop_block_right_resize,
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
-            rect = main_block.getBoundingClientRect(),
+            rect = document.getElementById("img").getBoundingClientRect(),
             mousePosX = e.clientX - rect.left,
             mousePosY = e.clientY - rect.top;
 
@@ -210,7 +210,7 @@ class ReactImageCrop extends Component {
             let main_block = this.refs.RICC_main_container,
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
-                rect = main_block.getBoundingClientRect(),
+                rect = document.getElementById("img").getBoundingClientRect(),
                 mousePosX = e.clientX - rect.left,
                 mousePosY = e.clientY - rect.top;
 
