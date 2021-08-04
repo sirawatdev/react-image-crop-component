@@ -118,12 +118,14 @@ class ReactImageCrop extends Component {
             resize_right_block = this.refs.RICC_crop_block_right_resize,
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
-            mousePosX = e.pageX+document.body.scrollLeft+document.documentElement.scrollLeft,
-            mousePosY = e.pageY+document.body.scrollTop+document.documentElement.scrollTop;
+            mousePosX = e.pageX+document.body.scrollLeft+document.documentElement.scrollLeft-gCanvasElement.offsetLeft,
+            mousePosY = e.pageY+document.body.scrollTop+document.documentElement.scrollTop-gCanvasElement.offsetTop;
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
             crop_block.style.top = mousePosY - this.state.blockY+"px";
+            congsole.log('pageX',pageX)
+            congsole.log('pageY',pageY)
             crop_block.style.left = mousePosX - this.state.blockX+"px";
             preview_block.style.marginTop = "-"+(mousePosY - this.state.blockY)+"px";
             preview_block.style.marginLeft = "-"+(mousePosX - this.state.blockX)+"px";
@@ -209,8 +211,8 @@ class ReactImageCrop extends Component {
             let main_block = this.refs.RICC_main_container,
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
-                mousePosX = e.pageX+document.body.scrollLeft+document.documentElement.scrollLeft,
-                mousePosY = e.pageY+document.body.scrollTop+document.documentElement.scrollTop;
+                mousePosX = e.pageX+document.body.scrollLeft+document.documentElement.scrollLeft-gCanvasElement.offsetLeft,
+                mousePosY = e.pageY+document.body.scrollTop+document.documentElement.scrollTop-gCanvasElement.offsetTop;
 
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
