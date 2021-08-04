@@ -118,7 +118,7 @@ class ReactImageCrop extends Component {
             resize_right_block = this.refs.RICC_crop_block_right_resize,
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
-            mousePosX = e.pageX || Math.round(e.touches[0].pageX),
+            mousePosX = e.pageX+document.body.scrollLeft || Math.round(e.touches[0].pageX+document.body.scrollLeft),
             mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].pageY+document.body.scrollTop);
 
         if(!this.state.activeCropBlock){
@@ -209,7 +209,7 @@ class ReactImageCrop extends Component {
             let main_block = this.refs.RICC_main_container,
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
-                mousePosX = e.pageX || Math.round(e.touches[0].pageX),
+                mousePosX = e.pageX+document.body.scrollLeft || Math.round(e.touches[0].pageX+document.body.scrollLeft),
                 mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].pageY+document.body.scrollTop);
 
             if(!this.state.activeCropBlock){
