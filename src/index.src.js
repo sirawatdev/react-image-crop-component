@@ -118,8 +118,7 @@ class ReactImageCrop extends Component {
             resize_right_block = this.refs.RICC_crop_block_right_resize,
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
-            canvas = document.querySelector('canvas'),
-            rect = canvas.getBoundingClientRect(),
+            rect = main_block.getBoundingClientRect(),
             mousePosX = e.clientX - rect.left,
             mousePosY = e.clientY - rect.top;
 
@@ -211,8 +210,7 @@ class ReactImageCrop extends Component {
             let main_block = this.refs.RICC_main_container,
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
-                canvas = document.querySelector('canvas'),
-                rect = canvas.getBoundingClientRect(),
+                rect = main_block.getBoundingClientRect(),
                 mousePosX = e.clientX - rect.left,
                 mousePosY = e.clientY - rect.top;
 
