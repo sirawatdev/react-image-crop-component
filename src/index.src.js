@@ -120,11 +120,8 @@ class ReactImageCrop extends Component {
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             window_size = this.state.windowsWidth,
-            rect = main_block.getBoundingClientRect(),
-            scaleX = main_block.width / rect.width,
-            scaleY = main_block.height / rect.height,
-            mousePosX = (e.clientX - rect.left) * scaleX,
-            mousePosY = (e.clientY - rect.top) * scaleY;
+            mousePosX = e.clientX+(window_size-document.body.clientWidth) || Math.round(e.touches[0].clientX+(window_size-document.body.clientWidth)),
+            mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
@@ -215,11 +212,8 @@ class ReactImageCrop extends Component {
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
                 window_size = this.state.windowsWidth,
-                rect = main_block.getBoundingClientRect(),
-                scaleX = main_block.width / rect.width,
-                scaleY = main_block.height / rect.height,
-                mousePosX = (e.clientX - rect.left) * scaleX,
-                mousePosY = (e.clientY - rect.top) * scaleY;
+                mousePosX = e.pageX+(window_size-document.body.clientWidth) || Math.round(e.touches[0].pageX+(window_size-document.body.clientWidth)),
+                mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
