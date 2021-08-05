@@ -120,9 +120,8 @@ class ReactImageCrop extends Component {
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             window_size = this.state.windowsWidth,
-            divide = document.body.clientWidth >= 768 ? 6 : 2,
-            mousePosX = e.clientX+((window_size-document.body.clientWidth)/divide) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/divide)),
-            mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
+            mousePosX = document.body.clientWidth >= 768 ? (e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6))) : e.pageX,
+            mousePosY = document.body.clientWidth >= 768 ? (e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop)) : e.pageY;
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
@@ -213,9 +212,8 @@ class ReactImageCrop extends Component {
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
                 window_size = this.state.windowsWidth,
-                divide = document.body.clientWidth >= 768 ? 6 : 2,
-                mousePosX = e.pageX+((window_size-document.body.clientWidth)/divide) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/divide)),
-                mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
+                mousePosX = document.body.clientWidth >= 768 ? (e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6))) : e.pageX,
+                mousePosY = document.body.clientWidth >= 768 ? (e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop)) : e.page.Y;
 
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
