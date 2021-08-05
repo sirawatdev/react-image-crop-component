@@ -212,7 +212,7 @@ class ReactImageCrop extends Component {
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
                 window_size = this.state.windowsWidth,
-                mousePosX = e.pageX+(window_size-document.body.clientWidth) || Math.round(e.touches[0].clientX+(window_size-document.body.clientWidth)),
+                mousePosX = e.pageX-(window_size-document.body.clientWidth) || Math.round(e.touches[0].clientX-(window_size-document.body.clientWidth)),
                 mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
             if(!this.state.activeCropBlock){
