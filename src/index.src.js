@@ -148,11 +148,11 @@ class ReactImageCrop extends Component {
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             // rect = e.currentTarget.getBoundingClientRect(),
             // pos = getRelativeCoordinates(e,document.getElementById('imageWrap')),
-            mousePosX = e.pageX-_this.offsetLeft,
-            mousePosY = e.pageY-_this.offsetTop;
+            mousePosX = e.pageX-document.body.offsetLeft,
+            mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
+            // mousePosY = e.pageY-_this.offsetTop;
             // window_size = this.state.windowsWidth,
             // mousePosX = e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6)),
-            // mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
@@ -244,8 +244,8 @@ class ReactImageCrop extends Component {
                 preview_block = this.refs.RICC_crop_preview,
                 // rect = e.currentTarget.getBoundingClientRect(),
                 // $this = $(this),
-                mousePosX = e.pageX-_this.offsetLeft,
-                mousePosY = e.pageY-_this.offsetTop;
+                mousePosX = e.pageX-document.body.offsetLeft,
+                mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
                 // window_size = this.state.windowsWidth,
                 // mousePosX = e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6)),
                 // mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
