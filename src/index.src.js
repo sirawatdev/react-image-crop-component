@@ -148,8 +148,8 @@ class ReactImageCrop extends Component {
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             // rect = e.currentTarget.getBoundingClientRect(),
             pos = getRelativeCoordinates(e,document.getElementById('imageWrap')),
-            mousePosX = pos.x
-            mousePosY = pos.y
+            mousePosX = pos.x,
+            mousePosY = pos.y;
             // window_size = this.state.windowsWidth,
             // mousePosX = e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6)),
             // mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
@@ -244,8 +244,8 @@ class ReactImageCrop extends Component {
                 preview_block = this.refs.RICC_crop_preview,
                 // rect = e.currentTarget.getBoundingClientRect(),
                 pos = getRelativeCoordinates(e,document.getElementById('imageWrap')),
-                mousePosX = pos.x
-                mousePosY = pos.y
+                mousePosX = pos.x,
+                mousePosY = pos.y;
                 // window_size = this.state.windowsWidth,
                 // mousePosX = e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6)),
                 // mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
