@@ -119,9 +119,12 @@ class ReactImageCrop extends Component {
             resize_right_block = this.refs.RICC_crop_block_right_resize,
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
-            window_size = this.state.windowsWidth,
-            mousePosX = e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6)),
-            mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
+            rect = document.getElementById("imageWrap").getBoundingClientRect(),
+            mousePosX = e.clientX-rect.left,
+            mousePosY = e.clientY-rect.top;
+            // window_size = this.state.windowsWidth,
+            // mousePosX = e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6)),
+            // mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
         if(!this.state.activeCropBlock){
             // CREATE CROP BLOCK FUNCTION
@@ -211,9 +214,12 @@ class ReactImageCrop extends Component {
             let main_block = this.refs.RICC_main_container,
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
-                window_size = this.state.windowsWidth,
-                mousePosX = e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6)),
-                mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
+                rect = document.getElementById("imageWrap").getBoundingClientRect(),
+                mousePosX = e.clientX-rect.left,
+                mousePosY = e.clientY-rect.top;
+                // window_size = this.state.windowsWidth,
+                // mousePosX = e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6)),
+                // mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
 
             if(!this.state.activeCropBlock){
                 let startX = this.state.start.x,
