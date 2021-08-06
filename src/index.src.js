@@ -2,6 +2,33 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 let dbLastTap = 0;
 
+function getRelativeCoordinates (event, referenceElement) {
+
+    const position = {
+      x: event.pageX,
+      y: event.pageY
+    };
+  
+    const offset = {
+      left: referenceElement.offsetLeft,
+      top: referenceElement.offsetTop
+    };
+  
+    let reference = referenceElement.offsetParent;
+  
+    while(reference){
+      offset.left += reference.offsetLeft;
+      offset.top += reference.offsetTop;
+      reference = reference.offsetParent;
+    }
+  
+    return { 
+      x: position.x - offset.left,
+      y: position.y - offset.top,
+    }; 
+  
+  }
+
 class ReactImageCrop extends Component {
     constructor(props){
         super(props);
@@ -120,8 +147,9 @@ class ReactImageCrop extends Component {
             resize_top_block = this.refs.RICC_crop_block_top_resize,
             resize_bottom_block = this.refs.RICC_crop_block_bottom_resize,
             // rect = e.currentTarget.getBoundingClientRect(),
-            mousePosX = e.clientX-this.getClientRects().left,
-            mousePosY = e.clientY-this.getClientRects().top;
+            pos = getRelativeCoordinates(e,document.getElementById('imageWrap')),
+            mousePosX = pos.x
+            mousePosY = pos.y
             // window_size = this.state.windowsWidth,
             // mousePosX = e.clientX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].clientX+((window_size-document.body.clientWidth)/6)),
             // mousePosY = e.clientY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
@@ -215,8 +243,9 @@ class ReactImageCrop extends Component {
                 crop_block = this.refs.RICC_crop_block,
                 preview_block = this.refs.RICC_crop_preview,
                 // rect = e.currentTarget.getBoundingClientRect(),
-                mousePosX = e.clientX-this.getClientRects().left,
-                mousePosY = e.clientY-this.getClientRects().top;
+                pos = getRelativeCoordinates(e,document.getElementById('imageWrap')),
+                mousePosX = pos.x
+                mousePosY = pos.y
                 // window_size = this.state.windowsWidth,
                 // mousePosX = e.pageX+((window_size-document.body.clientWidth)/6) || Math.round(e.touches[0].pageX+((window_size-document.body.clientWidth)/6)),
                 // mousePosY = e.pageY+document.body.scrollTop || Math.round(e.touches[0].clientY+document.body.scrollTop);
